@@ -20,16 +20,20 @@ const Subheader = styled.div`
     font-weight: 300;
     font-size: 26px;
 `
-const Grid = styled.div``
+const Grid = styled.div`
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    width: 100%;
+    padding: 20px;
+`
 
 const Places = () => {
     const [places, setPlaces] = useState([])
 
     useEffect(() => {
         axios.get('/api/v1/places.json')
-        .then( resp => {
-            setPlaces(resp.data.data)
-        })
+        .then( resp => { setPlaces(resp.data.data) })
         .catch( resp => console.log(resp) )
     }, [places.length])
 
@@ -48,9 +52,9 @@ const Places = () => {
                 <h1>Streats</h1>
                 <Subheader>The best street food.</Subheader>
             </Header>
-            <div className="grid">
+            <Grid>
                 {grid}
-            </div>
+            </Grid>
         </Home>
     )
 }
