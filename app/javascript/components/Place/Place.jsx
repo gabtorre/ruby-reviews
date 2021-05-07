@@ -3,6 +3,7 @@ import axios from 'axios'
 import Header from './Header'
 import styled from 'styled-components'
 import ReviewForm from './ReviewForm'
+import Review from './Review'
 
 const Wrapper = styled.div`
     margin-left: auto;
@@ -58,7 +59,7 @@ const Place = (props) => {
         const place_id = place.data.id
         axios.post('/api/v1/reviews', {review, place_id})
         .then( resp => {
-            const included = [...place.included, resp.data]
+            const included = [...place.included, resp.data.data]
             setPlace({...place, included})
             setReview({title: '', description: '', score: 0})
         } )
@@ -69,17 +70,29 @@ const Place = (props) => {
         setReview({...review, score})
     }
 
+    let reviews
+    if(loaded && place.included){
+        reviews = place.included.map( (item, index) => {
+            return (
+                <Review
+                    key={index}
+                    attributes={item.attributes}
+                />
+            )
+        } )
+    }
+
     return (
         <Wrapper>
             {loaded &&
                 <>
                     <Column>
                         <Main>
-                                <Header 
-                                    attributes={place.data.attributes}
-                                    reviews={place.included}
-                                />
-                            <div className="reviews"></div>
+                            <Header 
+                                attributes={place.data.attributes}
+                                reviews={place.included}
+                            />
+                            {reviews}
                         </Main>
                     </Column>
                     <Column>

@@ -1,5 +1,6 @@
 import React from 'react'
 import {BrowserRouter as Router, Link} from 'react-router-dom'
+import Rating from '../Rating/Rating'
 import styled from 'styled-components'
 
 const Card = styled.div`
@@ -44,7 +45,7 @@ const Place = (props) => {
                 <img src={props.attributes.image_url} alt={props.attributes.name} />
             </PlaceLogo>
             <PlaceName>{props.attributes.name}</PlaceName>
-            <div className="place-score">{props.attributes.average_score}</div>
+            <Rating score={props.attributes.average_score} />
             <LinkWrapper>
                 <Link to={`/places/${props.attributes.slug}`}>View Place</Link>
             </LinkWrapper>

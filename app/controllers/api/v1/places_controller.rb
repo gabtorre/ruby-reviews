@@ -46,7 +46,7 @@ module Api
             private 
 
             def place_params
-                params.require(:place).permit(:name, :image_url)
+                params.require(:place).permit(:name, :image_url, :average_score)
             end
 
             def options
