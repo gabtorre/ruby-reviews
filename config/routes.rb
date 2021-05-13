@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  root 'pages#index'
 
+  
+  root 'pages#index'
+  
   namespace :api do
     namespace :v1 do
+      resources :sessions, only: [:create]
       resources :places, param: :slug
       resources :reviews, only: [:create, :destroy]
     end
