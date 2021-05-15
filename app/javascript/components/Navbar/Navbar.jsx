@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const Navbar = (props) => {
 
@@ -16,6 +17,8 @@ const Navbar = (props) => {
             <div className="max-w-7xl mx-auto">
                 <div className="w-1/6">
                     <p className="text-3xl">Streats</p> 
+                    <Link to="/login">Login</Link>
+                    <Link to="/registration">Sign Up</Link>
                     <button onClick={() => handleLogoutClick()}>Logout</button>
                 </div>
             </div>

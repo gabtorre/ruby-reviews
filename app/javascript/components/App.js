@@ -6,6 +6,7 @@ import Place from './Place/Place'
 import Profile from './Profile/Profile'
 import Navbar from './Navbar/Navbar'
 import Registration from './Auth/Registration'
+import Login from './Auth/Login'
 
 export default class App extends Component {
     constructor(){
@@ -69,7 +70,24 @@ export default class App extends Component {
                             )
                         }
                     />
+                    <Route
+                        exact
+                        path="/login"
+                        render={props => (
+                                <Login {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.loggedInStatus} />
+                            )
+                        }
+                    />
+                    <Route
+                        exact
+                        path="/registration"
+                        render={props => (
+                                <Registration {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.loggedInStatus} />
+                            )
+                        }
+                    />
                     <Route exact path="/places/:slug" component={Place} />
+                    {/* <Route exact path="/login" component={Login} /> */}
                     <Route
                         exact
                         path="/profile"
