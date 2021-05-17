@@ -1,18 +1,10 @@
-import React, { Component } from "react"
-import axios from "axios"
-import Registration from "./Auth/Registration"
-import Login from './Auth/Login'
+import React, { Component } from 'react'
+import axios from 'axios'
+import Places from './Places/Places'
 
 export default class Home extends Component {
     constructor(props) {
         super(props);
-
-        this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
-    }
-
-    handleSuccessfulAuth(data) {
-        this.props.handleLogin(data)
-        this.props.history.push("/profile")
     }
 
     render() {
@@ -20,7 +12,7 @@ export default class Home extends Component {
             <div>
                 <h1>Home</h1>
                 <h1>Status: {this.props.loggedInStatus}</h1>
-                <Registration handleSuccessfulAuth={this.handleSuccessfulAuth}/>
+                <Places />
             </div>
         )
     } 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 export default class Registration extends Component {
@@ -50,7 +51,7 @@ export default class Registration extends Component {
 
     render() { 
         return (
-            <div className="flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-center bg-gray-50 py-12 mt-16 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-md w-full space-y-8">
                     <div>
                         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Create an account</h2>
@@ -110,6 +111,10 @@ export default class Registration extends Component {
                             </button>
                         </div>
                     </form>
+                    <div className="text-sm text-center">
+                        Already have an account? 
+                        <Link to="/login" className="font-medium text-indigo-600 hover:text-indigo-500"> Sign In</Link>
+                    </div>
                 </div>
             </div>
         );

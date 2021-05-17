@@ -55,12 +55,13 @@ export default class App extends Component {
             loggedInStatus: "NOT_LOGGED_IN",
             user: {}
         })
+
     }
 
     render() { 
         return (  
             <>
-                <Navbar handleLogout={this.handleLogout} />
+                <Navbar handleLogout={this.handleLogout} history={this.props.history} user={this.state.user} loggedInStatus={this.state.loggedInStatus}/>
                 <Switch>
                     <Route
                         exact
