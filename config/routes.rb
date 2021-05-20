@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       delete :logout, to: "sessions#logout"
       get :logged_in, to: "sessions#logged_in"
       resources :places, param: :slug
-      resources :reviews, only: [:create, :destroy]
+      resources :reviews, only: [:index, :create, :destroy]
     end
   end
 

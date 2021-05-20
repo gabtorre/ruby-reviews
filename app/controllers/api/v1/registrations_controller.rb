@@ -4,6 +4,7 @@ module Api
             def create
                 user = User.create!(
                     email: params['user']['email'],
+                    username: params['user']['username'],
                     password: params['user']['password'],
                     password_confirmation: params['user']['password_confirmation']
                 )

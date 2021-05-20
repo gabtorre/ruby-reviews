@@ -38,7 +38,7 @@ export default function Navbar(props) {
                     }
                     
                     {props.loggedInStatus === "LOGGED_IN" && 
-                        <p className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">Welcome {props.user.email}</p>
+                        <p className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">Welcome {props.user.username}</p>
                     }
                 </div>
 

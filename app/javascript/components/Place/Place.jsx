@@ -36,6 +36,8 @@ const Place = (props) => {
 
         axios.get(url)
         .then(resp => {
+            console.log(resp)
+            console.log(place)
             setPlace(resp.data)
             setLoaded(true)
         })

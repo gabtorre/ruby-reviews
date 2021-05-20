@@ -33,7 +33,10 @@ const Places = () => {
 
     useEffect(() => {
         axios.get('/api/v1/places.json')
-        .then( resp => { setPlaces(resp.data.data) })
+        .then( resp => { 
+            console.log(resp)
+            setPlaces(resp.data.data)
+        })
         .catch( resp => console.log(resp) )
     }, [places.length])
 
